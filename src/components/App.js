@@ -4,6 +4,7 @@ import Screen from './Screen';
 import Pagination from './Pagination';
 import listOfAuthors from '../static/data/data.json';
 import { perPage } from '../constants';
+import { SortAuthors, GetThreeBestAuthors } from '../utils';
 
 export default class App extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ export default class App extends Component {
         };
 
         this.listOfAuthors = listOfAuthors.slice();
+        this.bestAuthors = GetThreeBestAuthors(this.listOfAuthors);
     }
 
     changePageHandler(page) {
@@ -37,7 +39,9 @@ export default class App extends Component {
             
         return (
             <Fragment>
-                <Screen authors={authorsToPrint} firstIndex={firstIndex} />
+                <Screen authors={authorsToPrint} 
+                        firstIndex={firstIndex}
+                        bestAuthors={this.bestAuthors} />
                 <Pagination perPage={perPage} 
                             printedAmount={authorsToPrint.length} 
                             currentPage={this.state.currentPage}

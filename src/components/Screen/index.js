@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Table from './Table';
 
 export default class Screen extends Component {
     constructor(props) {
@@ -7,24 +8,18 @@ export default class Screen extends Component {
     }
 
     render() {
-        let { firstIndex, authors } = this.props;
         return (
             <section className={`screen`}>
-                <table>
-                    <tbody>
-                        {authors.map((author, index) => {
-                            return <tr key={`author_${index}`}>
-                                <td>{firstIndex + index + 1}</td>
-                                <td>{author.name}</td>
-                            </tr>
-                        })}
-                    </tbody>
-                </table>
+                <Table firstIndex={this.props.firstIndex}
+                        authors={this.props.authors}
+                        bestAuthors={this.props.bestAuthors} />
             </section>
         );
     }
 }
 
 Screen.propTypes = {
-    authors: PropTypes.array.isRequired
+    authors: PropTypes.array.isRequired,
+    bestAuthors: PropTypes.array.isRequired,
+    firstIndex: PropTypes.number.isRequired
 };
