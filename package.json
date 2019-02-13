@@ -36,9 +36,12 @@
   },
   "dependencies": {
     "autoprefixer": "^9.4.7",
+    "install": "^0.12.2",
     "normalize.css": "^8.0.1",
+    "npm": "^6.7.0",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.1",
+    "randomcolor": "^0.5.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "webfontloader": "^1.6.28"

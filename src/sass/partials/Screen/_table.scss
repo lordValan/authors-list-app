@@ -1,0 +1,96 @@
+.authors-table {
+    width: 100%;
+    
+    .author-row {
+        display: flex;
+
+        background-color: $table-row-light-color;
+
+        &:nth-child(even) {
+            background-color: $table-row-dark-color;
+        }
+
+        &:first-child {
+            border-top-right-radius: $screen-border-radius;
+            border-top-left-radius: $screen-border-radius;
+        }
+
+        &:last-child {
+            border-bottom-right-radius: $screen-border-radius;
+            border-bottom-left-radius: $screen-border-radius;
+        }
+
+        .author-cell {
+            display: flex;
+            padding: 15px 10px;
+            box-sizing: border-box;
+
+            &.cell {
+                &-num {
+                    flex-basis: 5%;
+                    font-size: 0.75em;
+                    color: $light-gray-color;
+                }
+
+                &-letter {
+                    flex-basis: 5%;
+
+                    .f-letter {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: $f-letter-size;
+                        height: $f-letter-size;
+                        border-radius: 50%;
+                        font-size: 0.9em;
+                        font-weight: 700;
+                        color: #fff;
+                        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+                    }
+                }
+
+                &-num,
+                &-letter {
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &-name-pub {
+                    flex-basis: 30%;
+                    flex-direction: column;
+                    line-height: 1.3;
+
+                    .name {
+                        color: $primary-color;
+                        font-weight: 700;
+                    }
+
+                    .pubs {
+                        font-size: 0.9em;
+                        color: $light-gray-color;
+
+                        &.null {
+                            opacity: 0.45;
+                        }
+                    }
+                }
+
+                &-ach {
+                    flex-basis: 45%;
+                    justify-content: center;
+
+                    & > img {
+                        width: auto;
+                        height: 40px;
+                    }
+                }
+
+                &-views {
+                    flex-basis: 10%;
+                    color: $primary-color;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
