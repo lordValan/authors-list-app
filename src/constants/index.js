@@ -3,19 +3,27 @@ const perPage = 10;
 const orderItems = {
     name_asc: {
         value: `name_asc`,
-        text: `Имя (по возрастанию)`
+        text: `Сортировка по имени ⬇️`
     },
     name_desc: {
         value: `name_desc`,
-        text: `Имя (по убыванию)`
+        text: `Сортировка по имени ⬆️`
     },
     pageviews_asc: {
         value: `pageviews_asc`,
-        text: `Просмотры (по возрастанию)`
+        text: `Сортировка по просмотрам ⬇️`
     },
     pageviews_desc: {
         value: `pageviews_desc`,
-        text: `Просмотры (по убыванию)`
+        text: `Сортировка по просмотрам ⬆️`
+    },
+    count_pub_asc: {
+        value: `count_pub_asc`,
+        text: `Сортировка по публикациям ⬇️`
+    },
+    count_pub_desc: {
+        value: `count_pub_desc`,
+        text: `Сортировка по публикациям ⬆️`
     }
 };
 
@@ -29,4 +37,6 @@ const placeholders = {
     inputSearchName: `Поиск авторов по имени`
 }
 
-export { perPage, orderItems, achImages, placeholders }
+const authorsNotFound = `Авторы не найдены 😥`;
+
+export { perPage, orderItems, achImages, placeholders, authorsNotFound }

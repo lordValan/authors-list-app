@@ -35,6 +35,7 @@
 
     .rrs {
         overflow: hidden;
+        text-align: right;
 
         @include media($sm) {    
             overflow: initial;
@@ -63,6 +64,11 @@
 
             .rrs__label {
                 border-color: transparent;
+                padding: 0 1rem;
+
+                & > span {
+                    width: 100%;
+                }
             }
 
             .caret-icon {
@@ -78,8 +84,12 @@
             &:hover,
             &--selected {
                 color: $select-item-hover-color;
-            }
-            
+            }            
+        }
+
+        &--options-visible,
+        &__options {
+            max-height: 260px;
         }
     }
 }

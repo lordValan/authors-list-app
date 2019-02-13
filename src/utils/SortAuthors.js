@@ -20,6 +20,14 @@ export default function SortAuthors(authorsArr, order) {
             return authors.sort((first, second) => {
                 return (first.pageviews < second.pageviews) ? 1 : ((second.pageviews < first.pageviews) ? -1 : 0);
             });
+        case orderItems.count_pub_asc.value: 
+            return authors.sort((first, second) => {
+                return (first.count_pub > second.count_pub) ? 1 : ((second.count_pub > first.count_pub) ? -1 : 0);
+            });
+        case orderItems.count_pub_desc.value: 
+            return authors.sort((first, second) => {
+                return (first.count_pub < second.count_pub) ? 1 : ((second.count_pub < first.count_pub) ? -1 : 0);
+            });
         default:
             return authors;
     }

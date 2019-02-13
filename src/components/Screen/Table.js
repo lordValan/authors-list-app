@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { authorsNotFound } from '../../constants';
 
 export default class Table extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ export default class Table extends Component {
         return null;
     }
 
-    render() {
+    drawTable() {
         const { firstIndex, authors } = this.props;
 
         return (
@@ -57,6 +58,18 @@ export default class Table extends Component {
                 })}
             </div>
         );
+    }
+
+    drawEmpty() {
+        return (
+            <div className={`authors-not-found`}>
+                <span>{authorsNotFound}</span>
+            </div>
+        );
+    }
+
+    render() {
+        return this.props.authors.length > 0 ? this.drawTable() : this.drawEmpty();
     }
 }
 
