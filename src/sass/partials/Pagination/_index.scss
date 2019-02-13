@@ -1,0 +1,43 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+
+    .button {
+        padding: 0;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        opacity: 0.5;
+        user-select: none;
+        transition: opacity 0.3s ease-in-out;
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        & > img {
+            width: 20px;
+            height: auto;
+        }
+
+        &-prev {
+
+            & > img {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    .page-numbers {
+        color: #fff;
+        font-weight: 500;
+        margin: 0 25px;
+    }
+}

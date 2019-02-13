@@ -30,7 +30,7 @@ export default class Pagination extends Component {
                 { shouldPrevDraw ? 
                         <button className={`button button-prev`} 
                                 onClick={this.clickPrevButtonHandler.bind(this)} >
-                            prev
+                            <img src={`../../static/images/arrow.svg`} alt={`arrow-prev`} />
                         </button> 
                         : 
                         null 
@@ -39,7 +39,7 @@ export default class Pagination extends Component {
                 { shouldNextDraw ?
                         <button className={`button button-next`} 
                                 onClick={this.clickNextButtonHandler.bind(this)}>
-                            next
+                            <img src={`../../static/images/arrow.svg`} alt={`arrow-next`} />
                         </button> 
                         :
                         null 
