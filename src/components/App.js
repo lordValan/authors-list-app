@@ -34,8 +34,10 @@ export default class App extends Component {
     }
 
     onInputTextChange(value) {
+        const val = value.toLowerCase();
+
         let newAuthors = listOfAuthors.filter((author) => {
-            return author.name.toLowerCase().includes(value);
+            return author.name.toLowerCase().includes(val);
         });
 
         newAuthors = SortAuthors(newAuthors, this.state.selectedSortItem);
