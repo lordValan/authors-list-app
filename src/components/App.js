@@ -19,11 +19,11 @@ export default class App extends Component {
         });
 
         this.state = {
-            currentPage: 1
+            currentPage: 1,
+            listOfAuthors: listOfAuthors.slice()
         };
 
-        this.listOfAuthors = listOfAuthors.slice();
-        this.bestAuthors = GetThreeBestAuthors(this.listOfAuthors);
+        this.bestAuthors = GetThreeBestAuthors(this.state.listOfAuthors);
     }
 
     changePageHandler(page) {
@@ -32,20 +32,32 @@ export default class App extends Component {
         });
     }
 
+    onInputTextChange(value) {
+        const newAuthors = listOfAuthors.filter((author) => {
+            return author.name.toLowerCase().includes(value);
+        });
+        
+        this.setState({
+            listOfAuthors: newAuthors,
+            currentPage: 1
+        });
+    }
+
     render() {
         let firstIndex = (this.state.currentPage - 1) * perPage,
             lastIndex = this.state.currentPage * perPage,
-            authorsToPrint = this.listOfAuthors.slice(firstIndex, lastIndex);
+            authorsToPrint = this.state.listOfAuthors.slice(firstIndex, lastIndex);
             
         return (
             <Fragment>
                 <Screen authors={authorsToPrint} 
                         firstIndex={firstIndex}
-                        bestAuthors={this.bestAuthors} />
+                        bestAuthors={this.bestAuthors}
+                        onInputTextChange={this.onInputTextChange.bind(this)} />
                 <Pagination perPage={perPage} 
                             printedAmount={authorsToPrint.length} 
                             currentPage={this.state.currentPage}
-                            maxNumPages={this.listOfAuthors.length}
+                            maxNumPages={this.state.listOfAuthors.length}
                             changePageHandler={this.changePageHandler.bind(this)} />
             </Fragment>
         );

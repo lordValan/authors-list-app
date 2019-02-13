@@ -25,4 +25,8 @@ const achImages = {
     third: `3rd.svg`
 }
 
-export { perPage, orderItems, achImages }
+const placeholders = {
+    inputSearchName: `Поиск авторов по имени`
+}
+
+export { perPage, orderItems, achImages, placeholders }

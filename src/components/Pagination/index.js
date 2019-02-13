@@ -18,7 +18,7 @@ export default class Pagination extends Component {
         this.props.changePageHandler(this.props.currentPage + 1);
     }
 
-    render() {
+    drawPagination() {
         let { currentPage, perPage, printedAmount, maxNumPages } = this.props,
             firstElemPos = (currentPage - 1) * perPage + 1,
             lastElemPos = firstElemPos - 1 + printedAmount,
@@ -46,6 +46,10 @@ export default class Pagination extends Component {
                 }
             </section>
         );
+    }
+
+    render() {
+        return this.props.printedAmount > 0 ? this.drawPagination() : null;
     }
 }
 
