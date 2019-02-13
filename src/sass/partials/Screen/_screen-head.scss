@@ -1,0 +1,85 @@
+.screen-head {
+    display: flex;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $screen-head-bg-color;
+    border-top-right-radius: $screen-border-radius;
+    border-top-left-radius: $screen-border-radius;
+
+    & > * {
+        width: 49%;
+    }
+    
+    .search-name-input {
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: bold;
+        padding-left: 35px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px;
+        color: $screen-text-input-color;
+
+        &::placeholder {
+            font-weight: bold;
+            color: $screen-head-placeholder-color;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .rrs {
+        overflow: hidden;
+
+        @include media($sm) {    
+            overflow: initial;
+        }
+
+        &__button {
+            box-shadow: none;
+            font-weight: bold;
+            background-color: transparent;
+
+            &[aria-expanded="false"] {
+                background-color: transparent;
+
+                &:focus .rrs__label {
+                    border-color: transparent;
+                }
+            }
+
+            &[aria-expanded="true"] {
+                .rrs__label {
+                    @include media($sm) {    
+                        border-color: #999;
+                    }
+                }
+            }
+
+            .rrs__label {
+                border-color: transparent;
+            }
+
+            .caret-icon {
+                opacity: 0;
+
+                @include media($sm) {    
+                    opacity: 1;
+                }
+            }
+        }
+
+        &__option {
+            &:hover,
+            &--selected {
+                color: $select-item-hover-color;
+            }
+            
+        }
+    }
+}

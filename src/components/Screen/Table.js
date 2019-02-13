@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import randomColor from 'randomcolor';
 
 export default class Table extends Component {
     constructor(props) {
@@ -34,12 +33,7 @@ export default class Table extends Component {
                             </span>
                         </div>
                         <div className={`author-cell cell-letter`}>
-                            <span className={`f-letter`} style={{
-                                backgroundColor: randomColor({
-                                    luminosity: 'bright',
-                                    format: 'rgb'
-                                })
-                            }}>
+                            <span className={`f-letter`}>
                                 {author.name.charAt(0).toUpperCase()}
                             </span>
                         </div>

@@ -3,21 +3,27 @@
     
     .author-row {
         display: flex;
-
+        border-bottom: 1px solid $table-border-color;
+        border-top: 1px solid $table-border-color;
         background-color: $table-row-light-color;
 
         &:nth-child(even) {
             background-color: $table-row-dark-color;
         }
 
-        &:first-child {
-            border-top-right-radius: $screen-border-radius;
-            border-top-left-radius: $screen-border-radius;
-        }
-
         &:last-child {
             border-bottom-right-radius: $screen-border-radius;
             border-bottom-left-radius: $screen-border-radius;
+        }
+
+        @for $i from 1 through 100 {
+            &:nth-child(#{$i}) {
+                .cell-letter {
+                    .f-letter {
+                        background-color: rgb(random(255),random(255),random(255));
+                    }
+                }
+            }
         }
 
         .author-cell {

@@ -36,9 +36,10 @@ export default class ScreenHead extends Component {
 
         return (
             <section className={`screen-head`}>
-                <input type="text" 
+                <input type="text" className={`search-name-input`}
                         placeholder={placeholders.inputSearchName}
-                        onChange={this.onInputTextChangeHandler.bind(this)} />
+                        onChange={this.onInputTextChangeHandler.bind(this)} 
+                        style={{backgroundImage: 'url("../../static/images/search.svg")'}} />
                 <ReactResponsiveSelect
                     name={`sort-select`}
                     options={selectOptions}
