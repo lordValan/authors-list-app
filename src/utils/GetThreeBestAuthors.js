@@ -2,7 +2,7 @@ import { orderItems, achImages } from '../constants';
 import SortAuthors from './SortAuthors';
 
 export default function GetThreeBestAuthors(authorsArr) {
-    const authors = SortAuthors(authorsArr, orderItems.pageviews_desc.key).slice(0, 3),
+    const authors = SortAuthors(authorsArr, orderItems.pageviews_desc.value).slice(0, 3),
         achRes = [];
 
     for (let i = 0; i < authors.length; i++) {

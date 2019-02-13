@@ -2,20 +2,20 @@ const perPage = 10;
 
 const orderItems = {
     name_asc: {
-        key: `name_asc`,
-        text: `Сортировать по имени &#8595;`
+        value: `name_asc`,
+        text: `Имя (по возрастанию)`
     },
     name_desc: {
-        key: `name_desc`,
-        text: `Сортировать по имени &#8593;`
+        value: `name_desc`,
+        text: `Имя (по убыванию)`
     },
     pageviews_asc: {
-        key: `pageviews_asc`,
-        text: `Сортировать по количеству просмотров &#8595;`
+        value: `pageviews_asc`,
+        text: `Просмотры (по возрастанию)`
     },
     pageviews_desc: {
-        key: `pageviews_desc`,
-        text: `Сортировать по количеству просмотров &#8593;`
+        value: `pageviews_desc`,
+        text: `Просмотры (по убыванию)`
     }
 };
 

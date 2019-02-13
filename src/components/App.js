@@ -20,7 +20,8 @@ export default class App extends Component {
 
         this.state = {
             currentPage: 1,
-            listOfAuthors: listOfAuthors.slice()
+            listOfAuthors: listOfAuthors.slice(),
+            selectedSortItem: ''
         };
 
         this.bestAuthors = GetThreeBestAuthors(this.state.listOfAuthors);
@@ -33,13 +34,25 @@ export default class App extends Component {
     }
 
     onInputTextChange(value) {
-        const newAuthors = listOfAuthors.filter((author) => {
+        let newAuthors = listOfAuthors.filter((author) => {
             return author.name.toLowerCase().includes(value);
         });
+
+        newAuthors = SortAuthors(newAuthors, this.state.selectedSortItem);
         
         this.setState({
             listOfAuthors: newAuthors,
             currentPage: 1
+        });
+    }
+
+    onSortSelectChange(value) {
+        const sortedAuthors = SortAuthors(this.state.listOfAuthors, value); 
+
+        this.setState({
+            listOfAuthors: sortedAuthors,
+            currentPage: 1,
+            selectedSortItem: value
         });
     }
 
@@ -53,7 +66,9 @@ export default class App extends Component {
                 <Screen authors={authorsToPrint} 
                         firstIndex={firstIndex}
                         bestAuthors={this.bestAuthors}
-                        onInputTextChange={this.onInputTextChange.bind(this)} />
+                        onInputTextChange={this.onInputTextChange.bind(this)}
+                        onSortSelectChange={this.onSortSelectChange.bind(this)}
+                        selectedSortItem={this.state.selectedSortItem} />
                 <Pagination perPage={perPage} 
                             printedAmount={authorsToPrint.length} 
                             currentPage={this.state.currentPage}
