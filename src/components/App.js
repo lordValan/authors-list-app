@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import WebFont from 'webfontloader';
+import Screen from './Screen';
+import Pagination from './Pagination';
+import listOfAuthors from '../static/data/data.json';
+import { perPage } from '../constants';
 
 export default class App extends Component {
     constructor(props) {
@@ -12,12 +16,33 @@ export default class App extends Component {
                 ]
             }
         });
+
+        this.state = {
+            currentPage: 1
+        };
+
+        this.listOfAuthors = listOfAuthors.slice();
+    }
+
+    changePageHandler(page) {
+        this.setState({
+            currentPage: page
+        });
     }
 
     render() {
+        let firstIndex = (this.state.currentPage - 1) * perPage,
+            lastIndex = this.state.currentPage * perPage,
+            authorsToPrint = this.listOfAuthors.slice(firstIndex, lastIndex);
+            
         return (
             <Fragment>
-                <h1>Hello</h1>
+                <Screen authors={authorsToPrint} firstIndex={firstIndex} />
+                <Pagination perPage={perPage} 
+                            printedAmount={authorsToPrint.length} 
+                            currentPage={this.state.currentPage}
+                            maxNumPages={this.listOfAuthors.length}
+                            changePageHandler={this.changePageHandler.bind(this)} />
             </Fragment>
         );
     }
